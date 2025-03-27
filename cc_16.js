@@ -12,7 +12,7 @@ function fetchProductThen() {
     })
     .then(data => {
         data.forEach(product => {
-            console.log(product.name);
+            console.log(product.fields.name);
         });
     })
     .catch(error => {
@@ -39,8 +39,8 @@ function displayproducts(products) {
 
     products.forEach(product => {
         const productelement = document.createElement('div');
-        productelement.classlist.add('product');
-        productelement.innerhtml = `<h3>${product.name}</h3>`;
+        productelement.classList.add('product');
+        productelement.innerHTML = `<h3>${product.fields.name}</h3>`;
         productcontainer.appendChild(productelement);
     });
 }
