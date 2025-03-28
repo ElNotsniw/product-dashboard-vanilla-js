@@ -68,10 +68,12 @@ function displayproducts(products) {
     }
 }
 
+// Task 5 - Reusable Error Handler
+
 // Creating a function to catch and handle any errors that could happen in the website.
 
 function handleerror(error) {
-    console.error('Error:', error);
+    console.error('An error occurred:', error);
     const productcontainer = document.getElementById('product-container');
     productcontainer.innerHTML = `<p>There was an error loading the products. Please try again.</p>`;
 }
