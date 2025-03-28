@@ -96,4 +96,9 @@ async function fetchproudctasync() {
     }
 }
 
+// Task 6 - Call your Fetch Functions
+
+// Using .then and .async to the same task: Fetching products and displaying them on the page.
+
+fetchProductThen();
 fetchproudctasync();
