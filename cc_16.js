@@ -43,6 +43,29 @@ function displayproducts(products) {
         productelement.innerHTML = `<h3>${product.fields.name}</h3>`;
         productcontainer.appendChild(productelement);
     });
+
+    // Task 4 - Display the Products
+
+    // Using const to set a name, price, and image to the first 5 products and inputting it in the HTML code, then finally appending it.
+
+    for (let i = 0; i < 5; i++) {
+        const product = products[i];
+
+        const productelement = document.createElement('div');
+        productelement.classList.add('product');
+
+        const productname = product.fields.name;
+        const productprice = product.fields.price;
+        const productimage = product.fields.image[0].url
+
+        productelement.innerHTML = `
+        <img src ="${productimage}" alt=${productname} class="product-image">
+        <h3>${productname}</h3>
+        <p>Price: $${productprice}</p>
+        `;
+
+        productcontainer.appendChild(productelement);
+    }
 }
 
 // Creating a function to catch and handle any errors that could happen in the website.
