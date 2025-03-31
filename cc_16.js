@@ -32,7 +32,31 @@ fetchProductThen();
 
 // Task 3 - Fetch Products with async/await
 
-// Creating a function to display any product in the container.
+// Creating a async function that returns a promise by fetching store product data from the API.
+
+async function fetchproudctasync() {
+    try {
+        const response = await fetch('https://www.course-api.com/javascript-store-products');
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+
+        const data = await response.json();
+
+        displayproducts(data);
+    }   catch (error) {
+        handleerror();
+    }
+}
+
+
+// ----------------------------------------------------------------------------------------------------------------------
+
+
+    // Task 4 - Display the Products
+
+    // Creating a function to display any product in the container.
 
 function displayproducts(products) {
     const productcontainer = document.getElementById('product-container');
@@ -43,8 +67,6 @@ function displayproducts(products) {
         productelement.innerHTML = `<h3>${product.fields.name}</h3>`;
         productcontainer.appendChild(productelement);
     });
-
-    // Task 4 - Display the Products
 
     // Using const to set a name, price, and image to the first 5 products and inputting it in the HTML code, then finally appending it.
 
@@ -68,6 +90,14 @@ function displayproducts(products) {
     }
 }
 
+
+
+// ----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
 // Task 5 - Reusable Error Handler
 
 // Creating a function to catch and handle any errors that could happen in the website.
@@ -76,25 +106,11 @@ function handleerror(error) {
     console.error('An error occurred:', error);
     const productcontainer = document.getElementById('product-container');
     productcontainer.innerHTML = `<p>There was an error loading the products. Please try again.</p>`;
-}
-
-// Creating a async function that returns a promise by fetching store product data from the API.
-
-async function fetchproudctasync() {
-    try {
-        const response = await fetch('https://www.course-api.com/javascript-store-products');
-
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-
-        const data = await response.json();
-
-        displayproducts(data);
-    }   catch (error) {
-        handleerror();
     }
-}
+
+
+
+// ----------------------------------------------------------------------------------------------------------------------
 
 // Task 6 - Call your Fetch Functions
 
